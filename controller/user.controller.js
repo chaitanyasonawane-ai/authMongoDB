@@ -259,4 +259,5 @@ const forgotPassword= async(req,res)=>{
     
 }
 
+// export 
 export {registerUser, verifyUser, login, getMe, logoutUser, resetPassword, forgotPassword}
