@@ -105,7 +105,6 @@ const registerUser= async(req, res)=> {
 
 };
 
-
 const verifyUser= async(req, res)=>{
     // get token from url
     // validate
@@ -145,7 +144,6 @@ const verifyUser= async(req, res)=>{
 
     
 }
-
 
 const login = async(req, res)=>{
     const {email, password}= req.params
@@ -222,16 +220,17 @@ const login = async(req, res)=>{
     }
 }
 
-
 const getMe= async(req,res)=>{
     try {
-        console.log("reached at profile level")
+        // const data = req.user
+        // console.log("reached at profile level", data)
+
+       const user= await User.findById(req.user.id).select('-password')
     } catch (error) {
         
     }
     
 }
-
 
 const logoutUser= async(req,res)=>{
     try {
@@ -242,7 +241,6 @@ const logoutUser= async(req,res)=>{
     
 }
 
-
 const resetPassword= async(req,res)=>{
     try {
         
@@ -252,7 +250,6 @@ const resetPassword= async(req,res)=>{
     
 }
 
-
 const forgotPassword= async(req,res)=>{
     try {
         
@@ -261,6 +258,5 @@ const forgotPassword= async(req,res)=>{
     }
     
 }
-
 
 export {registerUser, verifyUser, login, getMe, logoutUser, resetPassword, forgotPassword}
